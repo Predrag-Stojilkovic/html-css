@@ -1,0 +1,55 @@
+@import "./general";
+@import "./header";
+@import "./services";
+@import "./contact";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: $font;
+    color: $fontColor;
+
+    #home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 92vh;
+    
+        h1 {
+            font-size: 2em;
+            margin-bottom: 2em;
+        }
+    
+        img {
+            width: 50%;
+            min-width: 300px;
+        }
+    }
+    
+    #about {
+        background: $lightBackground;
+        padding: 5em 0;
+    
+        p {
+            width: 60%;
+            min-width: 320px;
+            margin: 1.5em auto;
+        }
+    }
+
+    footer {
+        padding: 2em 0;
+        background: $fontColor;
+        color: white;
+        text-align: center;
+    }
+}

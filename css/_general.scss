@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+// Variables
+$accentColor: #6c63ff;
+$accentColorLight: #d2c2fd;
+$font: 'Nunito', sans-serif;
+$fontColor: #3F3D56;
+$lightBackground: #f1f0ff;
+
+// Mixins
+@mixin displayFlex($justifyContent) {
+    display: flex;
+    align-items: center;
+    justify-content: $justifyContent;
+}

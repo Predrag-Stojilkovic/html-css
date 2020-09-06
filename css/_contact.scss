@@ -1,0 +1,96 @@
+@import "./general";
+
+#contact {
+    background: $lightBackground;
+    padding: 5em 0;
+
+    .contact-form {
+        @include displayFlex(space-between);
+        width: 60%;
+        min-width: 320px;
+        margin: 0 auto;
+
+        img {
+            width: 30%;
+            margin-right: 5em;
+        }
+
+        form {
+            flex: 1;
+            min-height: 35vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;      
+            padding: 1em;
+            
+
+            input {
+                padding: .8em;
+                margin-bottom: 1em;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+                border-bottom: 2px solid $accentColor;
+                outline: none;
+                font-family: $font;
+                font-size: 1em;
+
+                &::placeholder {
+                    color: $fontColor;
+                }
+            }
+
+            input[type="submit"] {
+                width: 50%;
+                background: $fontColor;
+                color: white;
+                align-self: flex-end;
+                font-family: $font;
+                border: none;
+                border-radius: 5px;
+                transition: all .5s;
+                cursor: pointer;
+
+                &:hover {
+                    color: $accentColorLight;
+                }
+            }
+
+            textarea {
+                padding: .8em;
+                margin-bottom: 1.5em;
+                border-top: none;
+                border-right: none;
+                border-left: none;
+                border-bottom: 2px solid $accentColor;
+                font-family: $font;
+                font-size: 1em;
+                outline: none;
+
+                &::placeholder {
+                    color: $fontColor;
+                }
+            }
+        }
+    }        
+}
+
+@media only screen and (max-width: 768px) {
+    #contact {
+        .contact-form {
+            flex-direction: column;
+            width: 90%;
+            margin: 0 auto;
+
+            img {
+                width: 50%;
+                margin-right: 0;
+                margin-bottom: 5em;
+            }
+
+            form {
+                width: 100%;
+            }
+        }
+    }
+}

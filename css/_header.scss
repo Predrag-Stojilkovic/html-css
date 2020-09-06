@@ -1,0 +1,184 @@
+@import "./general";
+
+header {
+    @include displayFlex(space-around);
+    min-height: 8vh;
+    transition: all .5s;
+
+    .logo {
+        text-transform: uppercase;
+        font-style: italic;
+        font-size: 1.5em;
+        letter-spacing: .25em;
+        cursor: pointer;
+        transition: all .5s;
+
+        &:hover {
+            color: $accentColor;
+        }
+    }
+
+    nav {
+        .navigation {
+            width: 20%;
+            min-width: 320px;
+            list-style: none;
+            @include displayFlex(space-between);
+    
+            a {
+                color: $fontColor;
+                text-decoration: none; 
+                transition: all .5s;
+
+                &:hover {
+                    color: $accentColor;
+                }
+            }
+        }
+    }
+
+    .menu-btn {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+        display: none;
+
+        .menu-btn-burger {
+            width: 25px;
+            height: 2px;
+            background: $fontColor;
+            border-radius: 3px;
+            transition: all .3s ease-in-out;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 25px;
+                height: 2px;
+                background: $fontColor;
+                border-radius: 3px;
+                transition: all .3s ease-in-out;
+            }
+
+            &::before {
+                transform: translateY(-6px);
+            }
+
+            &::after {
+                transform: translateY(6px);
+            }
+        }        
+    }
+
+    .menu-btn.open {
+        .menu-btn-burger {
+            transform: translateX(50px);
+            background: transparent;
+
+            &::before {
+                transform: rotate(45deg) translate(-35px, 35px);
+            }
+
+            &::after {
+                transform: rotate(-45deg) translate(-35px, -35px);
+            }
+        }
+    }
+}
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: $accentColor;
+    z-index: 999;
+
+    .logo {
+        color: white;
+
+        &:hover {
+            color: $accentColorLight;
+        }
+    }
+
+    .navigation {
+        a {
+            color: white;
+
+            &:hover {
+                color: $accentColorLight;
+            }
+        }
+    }
+
+    .menu-btn {
+        .menu-btn-burger {
+            background: white;
+
+            &::before,
+            &::after {
+                background: white;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        nav {
+            .navigation {
+                position: absolute;
+                top: 8vh;
+                right: 0;
+                height: 92vh;
+                background: $accentColor;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%);
+                transition: transform .3s ease-in;
+                z-index: 999;
+
+                li {
+                    margin: 1.25em 0;
+                    opacity: 0;
+                }
+
+                a {
+                    color: white;
+    
+                    &:hover {
+                        color: $accentColorLight;
+                    }
+                }
+            }
+
+            .navigation-active {
+                transform: translateX(0);
+            }
+        }
+
+        .menu-btn {
+            @include displayFlex(flex-end);
+        }
+    }
+}
+
+@keyframes navLinkFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
